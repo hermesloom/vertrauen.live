@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vertrauen - Das erste hochqualitative Datingportal Deutschlands
 
-## Getting Started
+## Übersicht
 
-First, run the development server:
+Vertrauen ist ein hochqualitatives Datingnetzwerk für besondere Begegnungen, das auf gegenseitigem Vertrauen und gemeinsamen Werten basiert. Es unterscheidet sich von konventionellen Dating-Plattformen durch:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Ein persönliches Aufnahmegespräch für jedes potenzielle Mitglied
+- Die Verpflichtung zu monatlichen Gesprächen mit anderen Mitgliedern
+- Eine Gemeinschaft, die auf Freundlichkeit, Ehrlichkeit, Konsent und Verantwortung aufbaut
+
+## Technischer Aufbau
+
+Dieses Projekt wurde mit modernen Webtechnologien entwickelt:
+
+- **Framework**: [Next.js](https://nextjs.org/) mit App Router
+- **UI-Komponenten**: [Shadcn UI](https://ui.shadcn.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Typensicherheit**: [TypeScript](https://www.typescriptlang.org/)
+- **Schriftarten**: Geist Sans & Geist Mono von Vercel
+
+## Funktionen
+
+- Responsives Design für alle Gerätetypen
+- Mehrstufiges Bewerbungsformular mit E-Mail-Integration
+- Smooth-Scroll-Navigation für eine verbesserte Benutzererfahrung
+- Moderne, minimalistische Ästhetik
+- Themensystem (hell/dunkel) mit System-Präferenz-Unterstützung
+
+## Lokale Entwicklung
+
+### Voraussetzungen
+
+- Node.js 18.x oder höher
+- npm, yarn oder pnpm
+
+### Installation
+
+1. Repository klonen:
+   ```bash
+   git clone https://github.com/yourusername/vertrauen.git
+   cd vertrauen
+   ```
+
+2. Abhängigkeiten installieren:
+   ```bash
+   npm install
+   # oder
+   yarn install
+   # oder
+   pnpm install
+   ```
+
+3. Entwicklungsserver starten:
+   ```bash
+   npm run dev
+   # oder
+   yarn dev
+   # oder
+   pnpm dev
+   ```
+
+4. Browser öffnen und http://localhost:3000 aufrufen
+
+## Projektstruktur
+
+```
+vertrauen/
+├── app/                  # Next.js App Router
+│   ├── layout.tsx        # Root Layout
+│   └── page.tsx          # Hauptseite
+├── components/           # React-Komponenten
+│   ├── application-form.tsx  # Bewerbungsformular
+│   ├── theme-provider.tsx    # Theme-Provider
+│   └── ui/               # UI-Komponenten (shadcn)
+├── lib/                  # Hilfsfunktionen
+│   └── utils.ts          # Utility-Funktionen
+├── public/               # Statische Dateien
+└── tailwind.config.js    # Tailwind-Konfiguration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Anpassung
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Das Bewerbungsformular sendet Anfragen per E-Mail an applications@vertrauen.live. Um dies zu ändern, passe die E-Mail-Adresse in `components/application-form.tsx` an:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```typescript
+const mailtoUrl = `mailto:deine-email@example.com?subject=...`;
+```
 
-## Learn More
+Um die Werte oder den Inhalt der Seite zu ändern, bearbeite die entsprechenden Abschnitte in `app/page.tsx`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dieses Projekt kann einfach auf Vercel, Netlify oder jeder anderen Next.js-kompatiblen Hosting-Plattform deployt werden:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Für Vercel
+vercel
 
-## Deploy on Vercel
+# Für Netlify
+netlify deploy
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Mitwirken
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Beiträge zum Projekt sind willkommen. Bitte halte dich an den Kodex der Gemeinschaft und die Werte von Vertrauen, wenn du Änderungen vorschlägst.
+
+## Lizenz
+
+MIT
+
+---
+
+Entwickelt mit ❤️ für echte Begegnungen.
