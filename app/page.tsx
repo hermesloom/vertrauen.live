@@ -273,7 +273,7 @@ export default function Home() {
       <footer className="border-t py-8">
         <div className="container max-w-screen-xl mx-auto flex justify-center">
           <p className="text-sm text-muted-foreground text-center">
-            © {new Date().getFullYear()} Vertrauen
+            ❤️ {new Date().getFullYear()} Vertrauen
           </p>
         </div>
       </footer>
