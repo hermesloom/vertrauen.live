@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ApplicationForm from "@/components/application-form";
+import Link from "next/link";
 
 export default function Home() {
   // Add smooth scroll handler function
@@ -18,14 +19,14 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container max-w-screen-xl mx-auto flex h-14 items-center justify-center">
           <div className="flex w-full max-w-4xl justify-between items-center">
-            <a className="flex items-center space-x-2" href="/">
+            <Link href="/" className="flex items-center space-x-2">
               <span className="text-xl font-bold">Vertrauen</span>
               <span className="text-xs text-muted-foreground">
                 vertrauen.live
               </span>
-            </a>
+            </Link>
             <nav className="flex items-center space-x-4 lg:space-x-6">
-              <a
+              <Link
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
@@ -34,8 +35,8 @@ export default function Home() {
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
                 Was uns besonders macht
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#process"
                 onClick={(e) => {
                   e.preventDefault();
@@ -44,8 +45,8 @@ export default function Home() {
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
                 Dein Weg zu uns
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#application"
                 onClick={(e) => {
                   e.preventDefault();
@@ -54,7 +55,7 @@ export default function Home() {
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
                 Bewerbung
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
