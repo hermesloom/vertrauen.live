@@ -1,102 +1,292 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ApplicationForm from "@/components/application-form";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // Add smooth scroll handler function
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container max-w-screen-xl mx-auto flex h-14 items-center justify-center">
+          <div className="flex w-full max-w-4xl justify-between items-center">
+            <a className="flex items-center space-x-2" href="/">
+              <span className="text-xl font-bold">Vertrauen</span>
+              <span className="text-xs text-muted-foreground">
+                vertrauen.live
+              </span>
+            </a>
+            <nav className="flex items-center space-x-4 lg:space-x-6">
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("about");
+                }}
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
+                Was uns besonders macht
+              </a>
+              <a
+                href="#process"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("process");
+                }}
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
+                Dein Weg zu uns
+              </a>
+              <a
+                href="#application"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("application");
+                }}
+                className="text-sm font-medium transition-colors hover:text-primary"
+              >
+                Bewerbung
+              </a>
+            </nav>
+          </div>
         </div>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="px-4 py-24 md:py-32 lg:py-40 bg-gradient-to-b from-background to-muted">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-primary">Vertrauen</span> ist möglich.
+            </h1>
+            <p className="text-xl md:text-2xl font-light mb-8">
+              Das erste Datingnetzwerk Deutschlands für wirklich besondere
+              Begegnungen.
+            </p>
+            <p className="md:text-lg mb-12 max-w-2xl mx-auto">
+              Bei uns zählt nicht Masse, sondern Klasse. Jedes Mitglied
+              durchläuft ein persönliches Gespräch, bevor es aufgenommen wird.
+              Warum? Weil echte Verbindung Vertrauen braucht – und Vertrauen
+              beginnt mit Verantwortung, Ehrlichkeit und echtem Interesse am
+              Gegenüber.
+            </p>
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <Button
+                size="lg"
+                className="px-6"
+                onClick={() => scrollToSection("application")}
+              >
+                Jetzt bewerben
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-6"
+                onClick={() => scrollToSection("about")}
+              >
+                Mehr erfahren
+              </Button>
+            </div>
+            <p className="text-sm mt-12 font-medium flex items-center justify-center">
+              <span className="mr-2">🔒</span>
+              Vertrauen ist keine Plattform. Vertrauen ist ein Versprechen.
+            </p>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="px-4 py-16 md:py-24 bg-card">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl md:text-4xl font-bold mb-12 text-center">
+              Was Vertrauen besonders macht
+            </h2>
+
+            <div className="grid grid-cols-1 gap-8">
+              {/* First row: Two cards side by side */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Persönliches Aufnahmegespräch</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>
+                      Bevor du Mitglied wirst, führen wir ein vertrauliches
+                      Gespräch mit dir. Wir wollen wissen: Wer bist du? Was
+                      bewegt dich? Und warum möchtest du Teil dieses Netzwerks
+                      sein?
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Ein monatliches Gespräch</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>
+                      Als Mitglied verpflichtest du dich, einmal im Monat ein
+                      echtes Gespräch zu führen – entweder mit einem anderen
+                      Mitglied oder mit jemandem, der sich auf eine
+                      Mitgliedschaft bewirbt. Du gibst weiter, was du empfangen
+                      hast.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Second row: Gemeinsame Werte card spanning full width */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Gemeinsame Werte</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-base leading-relaxed">
+                    Unsere Gemeinschaft lebt nach klaren Prinzipien, die jede
+                    Begegnung prägen:
+                    <strong className="font-semibold"> Freundlichkeit</strong> –
+                    Wir begegnen uns mit Respekt, Wohlwollen und Offenheit.
+                    <strong className="font-semibold"> Ehrlichkeit</strong> –
+                    Wir sagen, was wir meinen. Und wir meinen, was wir sagen.
+                    <strong className="font-semibold"> Konsent</strong> – Nur
+                    ein klares "Ja" ist ein Ja. Alles andere ist ein Nein.
+                    <strong className="font-semibold"> Verantwortung</strong> –
+                    Jede Begegnung ist eine Gelegenheit, das Leben des anderen
+                    positiv zu berühren. Und deines ebenso.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section id="process" className="px-4 py-16 md:py-24">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl md:text-4xl font-bold mb-12 text-center">
+              Dein Weg zu Vertrauen
+            </h2>
+
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Bewerbung ausfüllen
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Erzähle uns von dir, deinen Werten und was du dir von
+                    Vertrauen erhoffst.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Einladung zum Gespräch erhalten
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Bei positiver Vorprüfung laden wir dich zu einem
+                    vertraulichen Gespräch ein.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Mitglied werden
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Nach dem Gespräch entscheiden wir gemeinsam, ob Vertrauen
+                    der richtige Ort für dich ist.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Monatlich ein Gespräch führen
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Als Mitglied verpflichtest du dich zu mindestens einem
+                    Gespräch pro Monat.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  5
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Verbindungen leben, die verändern
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Erlebe Begegnungen, die auf Vertrauen, Respekt und echtem
+                    Interesse aufbauen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Application Form Section */}
+        <section id="application" className="px-4 py-16 md:py-24 bg-muted">
+          <div className="container mx-auto max-w-2xl">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center">
+              Bewerbungsformular
+            </h2>
+            <p className="text-center mb-12 italic">
+              "Bevor du jemanden triffst, lernst du dich selbst neu kennen."
+            </p>
+
+            <ApplicationForm />
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Simplified, centered footer */}
+      <footer className="border-t py-8">
+        <div className="container max-w-screen-xl mx-auto flex justify-center">
+          <p className="text-sm text-muted-foreground text-center">
+            © {new Date().getFullYear()} Vertrauen
+          </p>
+        </div>
       </footer>
     </div>
   );
